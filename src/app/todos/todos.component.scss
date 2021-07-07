@@ -1,0 +1,87 @@
+.todos-wrapper {
+    height: 100%;
+    overflow-y: auto;
+
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(black, 0.4);
+    border-radius: 25px;
+    margin-bottom: 15px;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.todo-text {
+    color: rgba(white, 0.85);
+}
+
+.check-box {
+    display: flex; //     line-height: 0; // to make it a perfect circle since the icon is a text
+    padding: 4px;
+    border: 2px solid rgba(white, 0.35);
+    border-radius: 50%;
+    margin-right: 15px;
+
+    i {
+        font-size: 18px;
+        opacity:0;
+    }
+
+}
+
+.todo-text,
+.check-box {
+    transition: 0.12s;
+}
+
+// TODO HOVER + ACTIVE
+
+.todo-item:hover {
+    .todo-text {
+        color: rgba(white, 0.95);
+
+    }
+    .check-box {
+        border-color: transparent;
+        background-color: rgba(white, 0.35);
+    }
+}
+
+
+.todo-item:active {
+    .todo-text {
+        color: rgba(white, 0.95);
+
+    }
+    .check-box {
+        border-color: transparent;
+        background: rgb(9,218, 89);
+        
+        i {
+            opacity:1;
+        }
+    }
+
+}
+
+// COMPLETED TODO 
+
+.todo-item.completed {
+   .todo-text {
+        color: rgba(white, 0.75);
+   } 
+
+   .check-box {
+        border-color: transparent;
+       background: rgb(9,218, 89);
+       
+    i {
+        opacity:1;
+    }
+
+   }
+
+}
