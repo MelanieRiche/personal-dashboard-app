@@ -1,19 +1,62 @@
 .tabs {
     display: flex;
     gap: 14px;
-    padding : 10px;
-    background-color:  rgba(white, 0.25);
-    border-radius: 12px;
 
+    background-color:  rgba(white, 0.25);
+    backdrop-filter: blur(3px); 
+
+    border-radius: 12px;
+    padding : 10px;
+    margin: 12px;
+    margin-top: 50px; // Clear space at the top for hover
+
+}
+
+.tab {
+    position: relative;
+    z-index: 1; // fix for firefox
 }
 
 .tab-tile {
     display: flex; // to make it square
     padding: 18px;
-    background-color:  rgba(black, 0.1);
     cursor: pointer;
+
 
     i {
         color: #222
     }
+}
+
+.tab-tile::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    height: 100%;
+    width: 100%;
+
+    border-radius: 10px;
+    opacity: 0.85;
+    transition: all 0.2s;
+}
+
+.bookmarks-tab .tab-tile::before {
+    background:  linear-gradient(45deg, #f8b5b5, #e2d2fd);
+}
+
+.todos-tab .tab-tile::before {
+    background:  linear-gradient(45deg, #a2ffff, #ffbdde);
+}
+
+.notes-tab .tab-tile::before {
+    background:  linear-gradient(45deg, #d2cdff, #5fffbc);
+}
+
+.tab-tile:hover::before {
+    transform: scale(1.1);
+    opacity: 1;
 }
