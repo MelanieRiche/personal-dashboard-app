@@ -1,0 +1,19 @@
+.tabs {
+    display: flex;
+    gap: 14px;
+    padding : 10px;
+    background-color:  rgba(white, 0.25);
+    border-radius: 12px;
+
+}
+
+.tab-tile {
+    display: flex; // to make it square
+    padding: 18px;
+    background-color:  rgba(black, 0.1);
+    cursor: pointer;
+
+    i {
+        color: #222
+    }
+}
