@@ -1,4 +1,9 @@
-.app-wrapper {
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app-wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -33,6 +38,9 @@
     // background-color: #572972;
     flex-grow:1;
     min-height:0;
+    min-width:0;
+    overflow:hidden;
+
 }
 
 .bottom-section {
