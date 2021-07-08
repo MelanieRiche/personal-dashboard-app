@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
 
@@ -10,7 +11,7 @@ import { NoteService } from '../shared/note.service';
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor(private noteService: NoteService) { }
+  constructor(private noteService: NoteService, private router: Router) { }  // inject service and router
 
   ngOnInit(): void {
   }
@@ -23,6 +24,7 @@ export class AddNoteComponent implements OnInit {
 
     // Adding the note to the array on note.service.ts
     this.noteService.addNote(note)
+    // Rediret when form is submitted
+    this.router.navigateByUrl("/notes")
   }
-
 }
