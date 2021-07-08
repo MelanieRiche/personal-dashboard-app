@@ -8,7 +8,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.scss'],
   animations: [
     trigger('routeAnim', [
-      transition('* => *', [
+      // when we increment tab we move in a direction, if decrementing we inverse
+      transition(':increment', [
         style({
           position: 'relative',
         }),
@@ -54,7 +55,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.snapshot && outlet.activatedRouteData.snapshot.url;
+    return outlet.activatedRouteData['tab']
   }
 
 }
