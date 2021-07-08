@@ -4,15 +4,13 @@
 
 }
 
-// BUTTONS
-
-.add-btn i {
-    margin-right: 5px;
-    margin-left: -3px;
-}
-
-
 app-note-card {
     display: block; // by default angular component are inline
     margin-bottom: 15px;
+}
+
+// BUTTONS
+.add-btn i {
+    margin-right: 5px;
+    margin-left: -3px;
 }
