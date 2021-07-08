@@ -1,4 +1,4 @@
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -26,16 +26,20 @@ import { RouterOutlet } from '@angular/router';
             opacity: 0
           }),
         ], { optional: true }),
-        query(':leave', [
-          animate(2000, style({
-            opacity: 0
-          })) 
-        ], { optional: true }),
-        query(':enter', [
-          animate(2000, style({
-            opacity: 1
-          })) 
-        ], { optional: true })
+
+        group([
+          query(':leave', [
+            animate(2000, style({
+              opacity: 0
+            })) 
+          ], { optional: true }),
+          query(':enter', [
+            animate(2000, style({
+              opacity: 1
+            })) 
+          ], { optional: true })
+        ])
+
       ])
     ])
   ]
