@@ -1,10 +1,12 @@
 <div class="notes-wrapper">
     <div class="container">
         <div class="notes-list">
-            <div class="note-card">
-                <div class="note-card-title">My note title, important :) </div>
-                <div class="note-card-content">The note content, less important, lorem ipsum lorem</div>
+            <div class="note-card" *ngFor="let note of notes">
+                <div class="note-card-title">{{ note.title }}</div>
+                <div class="note-card-content">{{ note.content }}</div>
             </div>
+
+            <app-note-card></app-note-card>
 
             <div class="btns-container centered">
                 <a routerLink="add" class="btn add-btn">

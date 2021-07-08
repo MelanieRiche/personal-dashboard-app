@@ -13,6 +13,7 @@ import { BookmarkTileComponent } from './bookmark-tile/bookmark-tile.component';
 
 import { RouterModule } from '@angular/router';
 import { AddNoteComponent } from './add-note/add-note.component';
+import { NoteCardComponent } from './note-card/note-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddNoteComponent } from './add-note/add-note.component';
     NotesComponent,
     TodosComponent,
     BookmarkTileComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    NoteCardComponent
   ],
   imports: [
     BrowserModule,
