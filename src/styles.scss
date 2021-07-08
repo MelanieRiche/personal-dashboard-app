@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons+Outlined');
 html {
     font-family: 'Inter', sans-serif;
+    color: #222
 }
 
 html, body {
@@ -18,8 +19,91 @@ h2 {
     font-size: 40px;
 }
 
+h1.is-bold,
+h2.is-bold {
+    font-weight: bold;
+    letter-spacing: -2px;
+    margin-bottom: 25px;
+}
+
+
 .container {
     max-width: 850px;
     // background: rgba(black, 0.25);
     margin: auto;
+}
+
+
+.btns-container {
+    display: flex;
+    margin-top: 20px;
+
+    &.centered {
+        justify-content: center;
+    }
+    .align-end {
+        margin-left: auto;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 22px;
+    border-radius: 5px;
+    background-color: rgba(black, 0.7);
+    color: rgba(white, 0.85);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border:none;
+
+    &:hover {
+        background-color: rgba(black, 0.85);
+        backdrop-filter: blur(2px);
+    }
+
+    &:active {
+        background-color: rgba(black, 0.95);
+        transform: translateY(2px);
+        transition: 0s;
+
+    }
+}
+
+
+.has-blurred-white-bg {
+    background-color: rgba(white, 0.85);
+    backdrop-filter: blur(2px);
+}
+
+.textbox,
+.textarea {
+    display: block;
+    background-color: rgba(white, 0.80);
+    border: 1.5px solid rgba(black, 0.2);
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: inherit;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+
+    &:hover,
+    &:focus {
+        background-color: rgba(white, 0.95);
+    }
+
+    &:focus {
+        border: 1.5px solid rgba(black, 0.35);
+        outline: none;
+    }
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
 }
