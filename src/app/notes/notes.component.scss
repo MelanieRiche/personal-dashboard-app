@@ -4,36 +4,15 @@
 
 }
 
-.note-card {
-    background-color: rgba(black, 0.5);
-    color: rgba(white, 0.85);
-    padding: 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: 15px;
-
-    &:hover {
-        background-color: rgba(black, 0.7);
-        color: rgba(white, 0.95);
-        backdrop-filter: blur(2px);
-    }
-}
-
-.note-card-title {
-    font-size: 20px;
-    font-weight: 600;
-
-}
-
-.note-card-content {
-    margin-top: 7px;
-
-}
-
 // BUTTONS
 
 .add-btn i {
     margin-right: 5px;
     margin-left: -3px;
+}
+
+
+app-note-card {
+    display: block; // by default angular component are inline
+    margin-bottom: 15px;
 }
