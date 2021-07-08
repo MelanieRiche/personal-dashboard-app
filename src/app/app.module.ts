@@ -26,12 +26,6 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      { path: 'bookmarks', component: BookmarksComponent },
-      { path: 'todos', component: TodosComponent },
-      { path: 'notes', component: NotesComponent },
-
-    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
