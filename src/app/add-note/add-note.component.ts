@@ -18,9 +18,11 @@ export class AddNoteComponent implements OnInit {
 
   onFormSubmit(form: NgForm) {
     // alert("Form has been submitted!")
-    // console.log(form.value)
+    // console.log(form)
+
+    if (form.invalid) return // if form.invalid is true, the following won't be executed
+
     const note = new Note(form.value.title, form.value.content)
-    console.log(note)
 
     // Adding the note to the array on note.service.ts
     this.noteService.addNote(note)
