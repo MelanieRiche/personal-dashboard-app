@@ -6,7 +6,10 @@ import { Bookmark } from './bookmark.model';
 })
 export class BookmarkService {
 
-  bookmarks!: Bookmark[]
+  bookmarks: Bookmark[] = [
+    new Bookmark('Youtube', 'https://www.youtube.com/'),
+    new Bookmark('Google', 'https://www.google.com/')
+  ]
 
   constructor() { }
 
@@ -32,6 +35,4 @@ export class BookmarkService {
     if (bookmarkIndex == -1) return
     this.bookmarks.splice(bookmarkIndex, 1)
   }
-
-
 }
