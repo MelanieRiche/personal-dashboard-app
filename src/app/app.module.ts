@@ -15,6 +15,7 @@ import { BookmarkTileComponent } from './bookmark-tile/bookmark-tile.component';
 import { RouterModule } from '@angular/router';
 import { AddNoteComponent } from './add-note/add-note.component';
 import { NoteCardComponent } from './note-card/note-card.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NoteCardComponent } from './note-card/note-card.component';
     TodosComponent,
     BookmarkTileComponent,
     AddNoteComponent,
-    NoteCardComponent
+    NoteCardComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,
