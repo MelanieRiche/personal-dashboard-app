@@ -7,7 +7,10 @@ import { Todo } from './todo.model';
 })
 export class TodoService {
 
-  todos!: Todo[]
+  todos: Todo[] = [
+    new Todo('test to check data passing through component'),
+    new Todo('test')
+  ]
 
   constructor() { }
 
