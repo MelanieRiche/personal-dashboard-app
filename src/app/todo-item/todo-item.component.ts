@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Todo } from '../shared/todo.model';
 
 @Component({
@@ -10,18 +11,22 @@ export class TodoItemComponent implements OnInit {
 
   @Input() todo!: Todo
 
+  @Output() editClick: EventEmitter<void> = new EventEmitter()
+  @Output() deleteClick: EventEmitter<void> = new EventEmitter()
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   onEditClick() {
-    alert("Edit button was clicked")
-
+    // alert("Edit button was clicked")
+    this.editClick.emit()
   }
 
   onDeleteClick() {
-    alert("Delete button was clicked")
+    // alert("Delete button was clicked")
+    this.deleteClick.emit()
   }
 
 }
