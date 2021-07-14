@@ -11,6 +11,8 @@ import { NoteService } from '../shared/note.service';
 })
 export class AddNoteComponent implements OnInit {
 
+  showValidationErrors!: boolean
+
   constructor(private noteService: NoteService, private router: Router) { }  // inject service and router
 
   ngOnInit(): void {
@@ -20,7 +22,8 @@ export class AddNoteComponent implements OnInit {
     // alert("Form has been submitted!")
     // console.log(form)
 
-    if (form.invalid) return // if form.invalid is true, the following won't be executed
+    if (form.invalid) return this.showValidationErrors = true
+    // if form.invalid is true, the following won't be executed
 
     const note = new Note(form.value.title, form.value.content)
 
