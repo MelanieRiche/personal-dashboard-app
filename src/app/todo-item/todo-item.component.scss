@@ -5,7 +5,6 @@
     align-items: center;
     background-color: rgba(black, 0.4);
     border-radius: 5px;
-    margin-bottom: 15px;
     padding: 10px 12px;
     cursor: pointer;
 }
@@ -55,7 +54,7 @@
     .check-box {
         border-color: transparent;
         background: rgb(9,218, 89);
-        transition-delay: 0.5s;
+        transition-delay:0.3s;
         i {
             opacity:1;
         }
