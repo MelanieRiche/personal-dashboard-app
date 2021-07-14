@@ -15,4 +15,13 @@ export class TodoItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onEditClick() {
+    alert("Edit button was clicked")
+
+  }
+
+  onDeleteClick() {
+    alert("Delete button was clicked")
+  }
+
 }
