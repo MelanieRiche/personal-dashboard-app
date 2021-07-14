@@ -12,10 +12,7 @@ export class TodoService {
     new Todo('test')
   ]
 
-  constructor() { 
-    this.todos[0].completed = true
-    this.todos[1].completed = false
-  }
+  constructor() {  }
 
   getTodos() {
     return this.todos

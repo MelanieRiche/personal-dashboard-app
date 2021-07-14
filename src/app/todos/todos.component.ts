@@ -17,4 +17,8 @@ export class TodosComponent implements OnInit {
     this.todos = this.todoService.getTodos()
   }
 
+  toggleCompleted(todo: Todo) {
+    this.todoService.updateTodo(todo.id, { completed: !todo.completed })
+  }
+
 }

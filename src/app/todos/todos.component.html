@@ -1,5 +1,5 @@
 <div class="todos-wrapper">
     <div class="container">
-        <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+        <app-todo-item *ngFor="let todo of todos" [todo]="todo" (click)="toggleCompleted(todo)"></app-todo-item>
     </div>
 </div>
