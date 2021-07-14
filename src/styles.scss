@@ -26,7 +26,9 @@ h2.is-bold {
     margin-bottom: 25px;
 }
 
-
+a {
+    text-decoration: none;
+}
 .container {
     max-width: 850px;
     // background: rgba(black, 0.25);
@@ -37,6 +39,7 @@ h2.is-bold {
 .btns-container {
     display: flex;
     margin-top: 20px;
+    gap: 12px;
 
     &.centered {
         justify-content: center;
@@ -60,6 +63,7 @@ h2.is-bold {
     cursor: pointer;
     transition: all 0.2s;
     border:none;
+
 
     &:hover {
         background-color: rgba(black, 0.85);
