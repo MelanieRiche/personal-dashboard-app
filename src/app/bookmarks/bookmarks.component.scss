@@ -9,7 +9,11 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-
     flex-wrap: wrap;
+}
 
+// BUTTONS
+.add-btn i {
+    margin-right: 5px;
+    margin-left: -3px;
 }
