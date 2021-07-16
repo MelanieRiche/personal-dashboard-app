@@ -33,12 +33,10 @@ export class EditBookmarkComponent implements OnInit {
     this.notificationService.show('Bookmark updated!')
   }
 
-
-
   delete() {
     this.bookmarkService.deleteBookmark(this.bookmark.id)
     this.router.navigate(['../'], { relativeTo: this.route })
-    this.notificationService.show('Bookmark deleted!')
+    this.notificationService.show('Bookmark deleted!') // we can also add a duration as a 2nd argument
   }
 
 }
