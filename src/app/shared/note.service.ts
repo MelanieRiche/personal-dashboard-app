@@ -24,6 +24,7 @@ export class NoteService {
 
   addNote(note: Note) {
     this.notes.push(note)
+    this.saveState()
   }
 
   updateNote(id: string, updatedFields: Partial<Note>) {
@@ -31,6 +32,7 @@ export class NoteService {
     const note = this.getNote(id)
     // Pass/Assign the updateFields
     Object.assign(note, updatedFields)
+    this.saveState()
   }
 
   deleteNote(id: string) {
@@ -40,5 +42,12 @@ export class NoteService {
       if (noteIndex == -1) return
     // And remove it if the note index can be found
     this.notes.splice(noteIndex, 1)
+    this.saveState()
+  }
+
+  // method to stave the state
+  saveState(){
+    // convert our Note array into a JSON string and then save it into localstorage
+    localStorage.setItem('notes', JSON.stringify(this.notes))
   }
 } 
