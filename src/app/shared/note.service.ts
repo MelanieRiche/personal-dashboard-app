@@ -6,12 +6,11 @@ import { Note } from './note.model';
 })
 export class NoteService {
 
-  notes: Note[] = [
-    new Note('Test title', 'test content'),
-    new Note('Test title', 'test content')
-  ]
+  notes: Note[] = []
 
-  constructor() { }
+  constructor() { 
+    this.loadState()
+  }
 
   getNotes() {
     return this.notes
@@ -49,5 +48,11 @@ export class NoteService {
   saveState(){
     // convert our Note array into a JSON string and then save it into localstorage
     localStorage.setItem('notes', JSON.stringify(this.notes))
+  }
+
+  loadState() {
+    const notesInStorage = JSON.parse(localStorage.getItem('notes')!)
+    if(!notesInStorage) return // if localStorage is null
+    this.notes = notesInStorage
   }
 } 
