@@ -48,4 +48,8 @@ export class TodosComponent implements OnInit {
 
   }
 
+  trackById(index: any, item: Todo) {
+    return item.id
+  }
+
 }
