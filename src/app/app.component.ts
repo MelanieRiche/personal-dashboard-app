@@ -1,7 +1,8 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const baseStyles = style({
   // display: 'block',
@@ -165,12 +166,14 @@ export class AppComponent implements OnInit {
     'https://images.unsplash.com/photo-1623275564123-99c00b15e392?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNTY0OTQxMA&ixlib=rb-1.2.1&q=80&w=1920'
   ]
   loadingBGImage!: boolean
-  dateTime!: Date
+  dateTime!: Observable<Date>
 
   ngOnInit() {
-    timer(0, 1000).subscribe(() => {
-      this.dateTime = new Date()
-    })
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date()
+      })
+    )
   }
 
   prepareRoute(outlet: RouterOutlet) {
