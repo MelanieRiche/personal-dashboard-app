@@ -91,4 +91,18 @@ export class AppComponent {
     return outlet.activatedRouteData['tab']
   }
 
+  async changeBGImage() {
+    // alert("i want to change bg img")
+    // request from unplash with fetch
+    const result = await fetch('https://source.unsplash.com/random', {
+      method: 'HEAD' // to get data without downloading the img
+    })
+
+    
+    // making sur we don't get twice the same img, if yes rerun the method
+    // if (result.url == this.bg) return this.changeBGImage() 
+
+    this.bg = result.url
+  }
+
 }
