@@ -111,7 +111,15 @@ export class AppComponent {
     this.backgrounds.push(result.url)
   }
 
-  onBGImageLoad() {
+  onBGImageLoad(imgEvent: Event) {
+    // BG image has loaded, now remove the old BG image from the backgrounds array
+    const imgElement = imgEvent.target as HTMLImageElement
+    // console.log(imgElement)
+    const src = imgElement.src
+    // console.log(src)
+    this.backgrounds = this.backgrounds.filter(b => b === src) // we only keep the b that is the same as the source that just loaded
+    // this.backgrounds = [src] ---- FIY: this line is doing the same as the precedent one
+
     this.loadingBGImage = false
   }
 
