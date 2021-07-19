@@ -85,6 +85,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
+  bg: string = 'https://images.unsplash.com/photo-1623275564123-99c00b15e392?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNTY0OTQxMA&ixlib=rb-1.2.1&q=80&w=1920'
+
   prepareRoute(outlet: RouterOutlet) {
     return outlet.activatedRouteData['tab']
   }
