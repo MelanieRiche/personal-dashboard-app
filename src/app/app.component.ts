@@ -1,6 +1,16 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { timer } from 'rxjs';
+
+const baseStyles = style({
+  // display: 'block',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%'
+})
 
 @Component({
   selector: 'app-root',
@@ -14,14 +24,7 @@ import { RouterOutlet } from '@angular/router';
           position: 'relative',
         }),
         query(':enter, :leave', [
-          style({
-            position: 'absolute',
-            overflow: 'hidden',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-          }),
+          baseStyles
         ], { optional: true }),
         group([
           query(':leave', [
@@ -50,14 +53,7 @@ import { RouterOutlet } from '@angular/router';
           position: 'relative',
         }),
         query(':enter, :leave', [
-          style({
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden'
-          }),
+          baseStyles
         ], { optional: true }),
 
         group([
@@ -79,6 +75,67 @@ import { RouterOutlet } from '@angular/router';
           ], { optional: true })
         ])
 
+      ]),
+      transition('* => secondary', [
+        style({
+          position: 'relative',
+          // overflow: 'hidden'
+        }),
+
+        query(':enter, :leave', [
+          baseStyles
+        ], { optional: true }),
+
+        group([
+          query(':leave', [
+            animate('200ms ease-in', style({
+              opacity: 0,
+              transform: 'scale(0.8)'
+            }))
+          ], { optional: true }),
+
+          query(':enter', [
+            style({
+              transform: 'scale(1.2)',
+              opacity: 0
+            }),
+            animate('250ms 120ms ease-out', style({
+              opacity: 1,
+              transform: 'scale(1)'
+            }))
+          ], { optional: true })
+        ])
+      ]),
+
+      transition('secondary => *', [
+        style({
+          position: 'relative',
+          // overflow: 'hidden'
+        }),
+
+        query(':enter, :leave', [
+          baseStyles
+        ], { optional: true }),
+
+        group([
+          query(':leave', [
+            animate('200ms ease-in', style({
+              opacity: 0,
+              transform: 'scale(1.25)'
+            }))
+          ], { optional: true }),
+
+          query(':enter', [
+            style({
+              transform: 'scale(0.8)',
+              opacity: 0
+            }),
+            animate('250ms 120ms ease-out', style({
+              opacity: 1,
+              transform: 'scale(1)'
+            }))
+          ], { optional: true })
+        ])
       ])
     ]),
     trigger('bgAnim', [
@@ -102,15 +159,26 @@ import { RouterOutlet } from '@angular/router';
     ]),
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   backgrounds: string[] = [
     'https://images.unsplash.com/photo-1623275564123-99c00b15e392?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNTY0OTQxMA&ixlib=rb-1.2.1&q=80&w=1920'
   ]
   loadingBGImage!: boolean
+  dateTime!: Date
+
+  ngOnInit() {
+    timer(0, 1000).subscribe(() => {
+      this.dateTime = new Date()
+    })
+  }
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet.activatedRouteData['tab']
+    if (outlet.isActivated) {
+      const tab = outlet.activatedRouteData['tab']
+      if (!tab) return 'secondary'
+      return tab
+    }
   }
 
   async changeBGImage() {
