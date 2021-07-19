@@ -1,7 +1,7 @@
 <div class="app-wrapper">
-  <img [src]="bg" class="bg-img">
+  <img [src]="bg" class="bg-img" (load)="onBGImageLoad()">
 
-  <div class="btn change-bg-btn" (click)="changeBGImage()">
+  <div class="btn change-bg-btn" (click)="changeBGImage()" *ngIf="!loadingBGImage">
     <i class="material-icons">refresh</i>
   </div>
 
