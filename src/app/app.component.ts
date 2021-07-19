@@ -85,9 +85,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
 
-  bg: string = 'https://images.unsplash.com/photo-1623275564123-99c00b15e392?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNTY0OTQxMA&ixlib=rb-1.2.1&q=80&w=1920'
+  backgrounds: string[] = [
+    'https://images.unsplash.com/photo-1623275564123-99c00b15e392?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyNTY0OTQxMA&ixlib=rb-1.2.1&q=80&w=1920'
+  ]
   loadingBGImage!: boolean
-  
+
   prepareRoute(outlet: RouterOutlet) {
     return outlet.activatedRouteData['tab']
   }
@@ -96,19 +98,21 @@ export class AppComponent {
     this.loadingBGImage = true
     // alert("i want to change bg img")
     // request from unplash with fetch
-    const result = await fetch('https://source.unsplash.com/random', {
+    const result = await fetch('https://source.unsplash.com/random/1920x1080', {
       method: 'HEAD' // to get data without downloading the img
     })
     
-    // making sur we don't get twice the same img, if yes rerun the method
-    // if (result.url == this.bg) return this.changeBGImage() 
+    const alreadyGot = this.backgrounds.includes(result.url)
+    if (alreadyGot) {
+      // this is the same image as we currently have, so re-run the function
+      this.changeBGImage()
+    }
 
-    this.bg = result.url
+    this.backgrounds.push(result.url)
   }
 
   onBGImageLoad() {
     this.loadingBGImage = false
-
   }
 
 }
